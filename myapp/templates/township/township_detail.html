@@ -1,0 +1,125 @@
+{% extends "partials/master.html" %}
+{% block content %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url "homepage" %}">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        
+        <div class="col col-lg-12">
+            <div class="card">
+            <div class="card-body">
+              <div class="card-header">
+                <h5 class="card-title">{{ villages.first.township.name }} ဟိ ကျေးရွာ စာရင်း (စုစုပေါင်း ကျေးရွာ {{villages.count }} ခု)</h5>
+              </div>
+                  
+
+              <!-- Default Table -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">စဥ်</th>
+                    <th scope="col">ရွာ နာမည်</th>
+                    <th scope="col">စာသင်ကျောင်းများ</th>
+                    <th scope="col">အိမ်များ</th>
+                    <th scope="col">လူဦးရေ</th>
+                    <th scope="col">ဘုန်းကြီးကျောင်း</th>
+                    <th scope="col">အပြင်အဆင်များ</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                
+                    {% for village in villages %}
+                    <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                      <td>{{ village.name }}</td>
+                      <td>{{ village.schools }}</td>
+                      <td>{{ village.houses }}</td>
+                      <td>{{ village.populations }}</td>
+                      <td>{{ village.monestaries }}</td>
+                      {% comment %} <td>{{ villages.first.township.name }}</td> {% endcomment %}
+                      
+                      <td>
+                          <a href="" class="btn btn-success"> <i class="ri ri-edit-box-fill"></i></a>
+                          <a href="" class="btn btn-primary"> <i class="ri ri-eye-fill"></i></a>
+                          <a href="" class="btn btn-danger"> <i class="ri ri-delete-bin-2-line"></i></a>
+
+                      </td>
+                    </tr>
+                    
+                    {% endfor %}
+                
+                      
+                    
+                    
+                
+                  
+                </tbody>
+                      
+
+              </table>
+
+              <div>
+                <a href="{% url "create_village_page" %}" class="btn btn-primary btn-lg">ကျေးရွာ အသစ်ပေါင်းထည့်ပါ</a>
+
+              </div>
+
+              <!-- End Default Table Example -->
+            </div>
+            </div>
+        </div>
+
+        {% comment %} <div class="col-lg-4"> {% endcomment %}
+
+          {% comment %} <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Township Form</h5>
+
+              <!-- Horizontal Form -->
+              <form>
+                <div class="row mb-3">
+                    <div class="col-sm-10">
+                        <label for="inputEmail3" class=" col-form-label">Township Name</label>
+                        <input type="text" class="form-control" id="inputText" placeholder="Enter township name">
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Create</button>
+                  <button type="reset" class="btn btn-danger">Cancel</button>
+                </div>
+                
+                
+              </form><!-- End Horizontal Form -->
+
+            </div>
+          </div> {% endcomment %}
+
+         
+
+        {% comment %} </div> {% endcomment %}
+        
+        
+    
+
+        
+
+      </div>
+
+    
+    </section>
+
+</main><!-- End #main -->
+{% endblock content %}
