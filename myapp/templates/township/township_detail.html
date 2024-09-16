@@ -52,9 +52,9 @@
                       {% comment %} <td>{{ villages.first.township.name }}</td> {% endcomment %}
                       
                       <td>
-                          <a href="" class="btn btn-success"> <i class="ri ri-edit-box-fill"></i></a>
+                          <a href="{% url "update_village_page"  village.id %}" class="btn btn-success"> <i class="ri ri-edit-box-fill"></i></a>
                           <a href="" class="btn btn-primary"> <i class="ri ri-eye-fill"></i></a>
-                          <a href="" class="btn btn-danger"> <i class="ri ri-delete-bin-2-line"></i></a>
+                          <a href="{% url "delete_village_page" village.id %}" class="btn btn-danger"> <i class="ri ri-delete-bin-2-line"></i></a>
 
                       </td>
                     </tr>

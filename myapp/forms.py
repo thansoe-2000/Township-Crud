@@ -2,19 +2,19 @@ from .models import *
 from django import forms
 from django.forms import ModelForm
 
-class TownshipForm(forms.ModelForm):
+class TownshipForm(ModelForm):
     class Meta:
         model = Township
         fields = '__all__'
         labels = {
             'name':'မြို့နယ် နာမည်'
         }
-        widget = {
+        widgets = {
             'name':forms.TextInput(attrs=({'placeholder':'မြို့နယ်နာမေ ထည့်ပါ။'})),
         }
       
         
-class VillageForm(forms.ModelForm):
+class VillageForm(ModelForm):
     class Meta:
         model = Village
         fields = '__all__'
@@ -36,6 +36,26 @@ class VillageForm(forms.ModelForm):
          'name':forms.TextInput(attrs=({'placeholder':'ရွာ နာမေ ရိုက်ထည့်ပါ'})),
          
       }
+class TownForm(ModelForm):
+    class Meta:
+        model = Town
+        fields = "__all__"
+        labels = {
+            'name':'မြို့နာမည်',
+            'township':'မြို့နယ် နာမည်'
+        }
+        
+class WardForm(ModelForm):
+    class Meta:
+        model = Ward
+        fields = "__all__"
+        labels = {
+            'name':'ရပ်ကွက်နာမည်',
+            'town':'မြို့နာမည်',
+            'schools':'စာသင်ကျောင်းအရီအတွက်',
+            'houses':'အိမ်အရီအတွက်',
+            'monestaries':'ဘုန်းကြီးကျောင်းအရီအတွက်',
+        }
         
        
       

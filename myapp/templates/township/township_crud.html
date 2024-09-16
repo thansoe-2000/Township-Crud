@@ -1,0 +1,176 @@
+{% extends "partials/master.html" %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+
+{% if page == 'create_township' %}
+<main id="main" class="main">
+  <section class="section dashboard">
+    <div class="row">
+      
+
+      <div class="col col-md-4"></div>
+
+      <div class="col col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <p class="text-center">မြို့နယ် နာမည် ပေါင်းထည့်ရန်</p>
+          </div>
+
+
+          <div class="card-body mt-3">
+              <form method="POST">
+                {% csrf_token %} 
+                {{form.name|as_crispy_field}}
+
+                <div class="text-center">
+                        <button type="submit" class="btn btn-primary">သိမ်းဆည်းမည်</button>
+                        <button type="reset" class="btn btn-danger">မသိမ်းပါ</button>
+                </div>
+              </form>
+          </div>
+
+         
+        </div>
+       
+
+        
+      </div>
+      <div class="col col-md-4"></div>
+    </div>
+  </section>
+</main>
+
+{% comment %} update township {% endcomment %}
+{% elif page == 'update_township' %}
+<main id="main" class="main">
+  <section class="section dashboard">
+    <div class="row">
+      
+
+      <div class="col col-md-4"></div>
+
+      <div class="col col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <p class="text-center">"{{ township.name}}" ကိုပြုပြင်ရန်</p>
+          </div>
+
+
+          <div class="card-body mt-3">
+              <form method="POST">
+                {% csrf_token %} 
+                {{form.name|as_crispy_field}}
+
+                <div class="text-center">
+                        <button type="submit" class="btn btn-primary">ပြုပြင်မည်</button>
+                        <button type="reset" class="btn btn-danger">မပြုပြင်ပါ</button>
+                </div>
+              </form>
+          </div>
+
+         
+        </div>
+       
+
+        
+      </div>
+      <div class="col col-md-4"></div>
+    </div>
+  </section>
+</main>
+
+
+{% elif page == 'delete_township' %}
+<main id="main" class="main">
+  <section class="section dashboard">
+    <div class="row">
+      
+
+      <div class="col col-md-4"></div>
+
+      <div class="col col-md-4">
+        <form method="POST">
+                {% csrf_token %} 
+        <div class="card">
+         
+
+
+          <div class="card-header">
+            <p class="">"{{ township.name}}" ကိုဖျက်ရန်</p>
+          </div>
+          <div class="card-body mt-3">
+            <p class="text-center">"{{ township.name}}"ကိုဖျက်ဖို့ သေချာလား။</p>
+          </div>
+          <div class="card-footer">
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                      <button class="btn btn-danger me-md-2" type="submit">ဖျက်မည်</button>
+                      <button class="btn btn-success" type="button" onclick='history.back()'>မဖျက်ပါ</button>
+                  </div>
+          </div>
+              
+        </form>
+       </div>
+    </div>
+                
+    <div class="col col-md-4"></div>
+  </div>
+</section>
+</main>
+
+{% elif page == 'delete_township' %}
+      <main id="main" class="main">
+        <section class="section dashboard">
+        <div class="row mt-5">
+            <div class="col col-md-3"></div>
+      
+                <div class="col col-md-6">
+                    <form method="POST">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-header">
+                            <p class=''>"{{ township.name }}" ကို ဖျက်ရန်</p>
+                        </div>
+
+                        
+                        <div class="card-body">
+                            <h6 class='text-center mt-5'>"{{ township.name }}" ကို ဖျက်ဖို့သေချာလား။</h6>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button class="btn btn-danger me-md-2" type="submit">ဖျက်မည်</button>
+                                <button class="btn btn-success" type="button" onclick='history.back()'>မဖျက်ပါ</button>
+                            </div>
+                        </div>
+                    </form>
+                        
+                </div>
+            </div>
+        
+        
+            <div class="col col-md-3"></div>
+        </div>
+            
+        </section>
+      </main>
+{% endif %}
+
+
+
+
+
+
+{% endblock content %}
+                
+
+                        
+                      
+                      
+                
+              
+        
+
+                
+       
+
+        

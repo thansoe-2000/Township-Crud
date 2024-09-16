@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %} 
 {% block content %}
 
-{% if page == 'create_page' %}
+{% if page == 'create_ward' %}
 <main id="main" class="main">
     <section class="section dashboard">
         <div class="row">
@@ -13,17 +13,17 @@
                 <div class="col col-md-6">
                     <div class="card">
                         <div class="card-header">
-                          <p class='text-center'>ကျေးရွာ အသစ် ထည့်ရန်</p>
+                          <p class='text-center'>ရပ်ကွက် အသစ် ထည့်ရန်</p>
                         </div>
                         <div class="card-body">
                            <form method="POST">
                                     {% csrf_token %}
                                     
                                         {{ form.name|as_crispy_field }}
-                                        {{ form.township|as_crispy_field }}
+                                        {{ form.town|as_crispy_field }}
                                         {{ form.schools|as_crispy_field }}
                                         {{ form.houses|as_crispy_field }}
-                                        {{ form.populations|as_crispy_field }}
+                                       
                                         {{ form.monestaries|as_crispy_field }}
                                         <div class="text-center">
                                                 <button type="submit" class="btn btn-primary">သိမ်းဆည်းမည်</button>
@@ -41,7 +41,7 @@
     </section>
 </main>
             
-{% elif page == 'update_page' %}
+{% elif page == 'update_ward' %}
       <main id="main" class="main">
         <section class="section dashboard">
         <div class="row">
@@ -50,16 +50,16 @@
                 <div class="col col-md-6">
                     <div class="card">
                       <div class="card-header">
-                          <p class='text-center'>"{{ village.name }}" ကို ပြုပြင်ရန်</p>
+                          <p class='text-center'>"{{ ward.name }}" ကို ပြုပြင်ရန်</p>
                       </div>
                         <div class="card-body">
                           <form method="POST">
                               {% csrf_token %}
                               {{form.name|as_crispy_field}}
-                              {{form.township|as_crispy_field}}
+                              {{form.town|as_crispy_field}}
                               {{form.schools|as_crispy_field}}
                               {{form.houses|as_crispy_field}}
-                              {{form.populations|as_crispy_field}}
+                              
                               {{form.monestaries|as_crispy_field}}
                               <button type="submit" class="btn btn-primary">ပြုပြင်ရန်</button>
                               <button type="reset" class="btn btn-danger" onclick='history.back()'>မပြုပြင်ပါ</button>
@@ -74,10 +74,9 @@
         </div>
             
         </section>
-      </main>
+</main>
 
-
-      {% elif page == 'delete_village' %}
+ {% elif page == 'delete_ward' %}
       <main id="main" class="main">
         <section class="section dashboard">
         <div class="row mt-5">
@@ -88,12 +87,12 @@
                     {% csrf_token %}
                     <div class="card">
                         <div class="card-header">
-                            <p class=''>"{{ village.name }}" ကို ဖျက်ရန်</p>
+                            <p class=''>"{{ ward.name }}" ကို ဖျက်ရန်</p>
                         </div>
 
                         
                         <div class="card-body">
-                            <h6 class='text-center mt-5'>"{{ village.name }}" ကို ဖျက်ဖို့သေချာလား။</h6>
+                            <h6 class='text-center mt-5'>"{{ ward.name }}" ကို ဖျက်ဖို့သေချာလား။</h6>
                         </div>
 
                         <div class="card-footer">
@@ -112,7 +111,7 @@
         </div>
             
         </section>
-      </main>
+      </main> 
 {% endif %}
       
                               
