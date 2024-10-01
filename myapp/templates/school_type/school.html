@@ -44,7 +44,7 @@
                             
                             <td>
                                 <a href="{% url "update_school_typepage" schooltype.id %}" class="btn btn-outline-success">Edit </a>
-                                <a href="" class="btn btn-outline-danger"> Delete</a>
+                                <a href="{% url "delete_school_typepage" schooltype.id %}" class="btn btn-outline-danger"> Delete</a>
                             </td>
                         </tr>
                       {% endfor %}

@@ -35,5 +35,6 @@ urlpatterns = [
     path('school/', views.school, name='school_page'),
     path('create_school_type/', views.create_school, name='create_school_page'),
     path('update_school_type/<str:pk>/update', views.update_school_type, name='update_school_typepage'),
+    path('delete_school_type/<str:pk>/delete', views.delete_school_type, name='delete_school_typepage'),
     
 ]

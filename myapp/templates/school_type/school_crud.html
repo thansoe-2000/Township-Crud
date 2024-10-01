@@ -72,7 +72,7 @@
         </section>
       </main>
 
-{% comment %} {% elif page == 'delete_town' %}
+{% elif page == 'delete_school_type' %}
       <main id="main" class="main">
         <section class="section dashboard">
         <div class="row mt-5">
@@ -83,12 +83,12 @@
                     {% csrf_token %}
                     <div class="card">
                         <div class="card-header">
-                            <p class=''>"{{ town.name }}" ကို ဖျက်ရန်</p>
+                            <p class=''>"{{ schooltype.name }}" ကို ဖျက်ရန်</p>
                         </div>
 
                         
                         <div class="card-body">
-                            <h6 class='text-center mt-5'>"{{ town.name }}" ကို ဖျက်ဖို့သေချာလား။</h6>
+                            <h6 class='text-center mt-5'>"{{ schooltype.name }}" ကို ဖျက်ဖို့သေချာလား။</h6>
                         </div>
 
                         <div class="card-footer">
@@ -107,7 +107,7 @@
         </div>
             
         </section>
-      </main> {% endcomment %}
+      </main> 
 {% endif %}
 {% endblock content %}
       

@@ -287,7 +287,7 @@ def create_school(request):
     }
     return render(request, 'school_type/school_crud.html', context)
 
-# update school
+# update school type
 def update_school_type(request, pk):
     schooltype = SchoolType.objects.get(id=pk)
     page = 'update_school'
@@ -303,4 +303,17 @@ def update_school_type(request, pk):
         'form':form
     }
     return render(request, 'school_type/school_crud.html', context)
-        
+
+
+# delete school type
+def delete_school_type(request, pk):
+    page = 'delete_school_type'
+    schooltype = SchoolType.objects.get(id=pk)
+    if request.method == 'POST':
+        schooltype.delete()
+        return redirect('school_page')
+    context = {
+        'page':page,
+        'schooltype':schooltype,
+    }
+    return render(request, 'school_type/school_crud.html', context)
