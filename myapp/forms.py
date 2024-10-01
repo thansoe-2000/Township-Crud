@@ -59,4 +59,13 @@ class WardForm(ModelForm):
         
        
       
-    
+class SchoolTypeForm(ModelForm):
+    class Meta:
+        model = SchoolType
+        fields = "__all__"
+        labels = {
+            'name':'ကျောင်း အမျိုးအစား'
+        }
+        widgets = {
+            'name':forms.TextInput(attrs=({'placeholder':'‌ကျောင်းအမျိုးအစား ထည့်ပါ'})),
+        }

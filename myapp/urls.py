@@ -31,6 +31,9 @@ urlpatterns = [
     path('update_ward/<str:pk>/update', views.update_ward, name="update_ward_page"),
     path('delete_ward/<str:pk>/delete', views.delete_ward, name="delete_ward_page"),
     
-    
+    # school
+    path('school/', views.school, name='school_page'),
+    path('create_school_type/', views.create_school, name='create_school_page'),
+    path('update_school_type/<str:pk>/update', views.update_school_type, name='update_school_typepage'),
     
 ]

@@ -70,7 +70,7 @@ def delete_township(request, pk):
         
         
     
-    
+# townships
 def township(request):
     villages = Village.objects.all()
     towns = Town.objects.all()
@@ -84,6 +84,7 @@ def township(request):
     }
     return render(request, 'township/township.html', context)
 
+# townships detail
 def township_detail(request, pk=id):
     township = Township.objects.filter()
     villages = Village.objects.filter(township_id=pk)
@@ -231,6 +232,7 @@ def create_ward(request):
     }
     return render(request, 'ward/ward_crud.html', context)
 
+# update_ward
 def update_ward(request, pk):
     ward = Ward.objects.get(id=pk)
     page = 'update_ward'
@@ -247,6 +249,7 @@ def update_ward(request, pk):
     }
     return render(request, 'ward/ward_crud.html', context)
 
+# delete_ward
 def delete_ward(request, pk):
     ward = Ward.objects.get(id=pk)
     page = 'delete_ward'
@@ -258,3 +261,46 @@ def delete_ward(request, pk):
         'page':page,
     }
     return render(request, 'ward/ward_crud.html', context)
+
+# schools
+def school(request):
+    schooltypes = SchoolType.objects.all()
+    context = {
+        'schooltypes':schooltypes,
+    }
+    return render(request, 'school_type/school.html', context)
+
+# create school
+def create_school(request):
+    schooltypes = SchoolType.objects.all()
+    page = 'create_school'
+    form = SchoolTypeForm()
+    if request.method == 'POST':
+        form = SchoolTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('school_page')
+    context = {
+        'schooltypes':schooltypes,
+        'page':page,
+        'form':form
+    }
+    return render(request, 'school_type/school_crud.html', context)
+
+# update school
+def update_school_type(request, pk):
+    schooltype = SchoolType.objects.get(id=pk)
+    page = 'update_school'
+    form = SchoolTypeForm(instance=schooltype)
+    if request.method == 'POST':
+        form = SchoolTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('school_page')
+    context = {
+        'schooltype':schooltype,
+        'page':page,
+        'form':form
+    }
+    return render(request, 'school_type/school_crud.html', context)
+        

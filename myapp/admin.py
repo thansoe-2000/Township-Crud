@@ -8,4 +8,5 @@ class VillageAdmin(admin.ModelAdmin):
 admin.site.register(Township)
 admin.site.register(Town)
 admin.site.register(Ward)
+admin.site.register(SchoolType)
 admin.site.register(Village, VillageAdmin)
