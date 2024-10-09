@@ -10,10 +10,10 @@ class Township(models.Model):
     
 class Village(models.Model):
     township = models.ForeignKey(Township, on_delete=models.CASCADE)
-    schools = models.IntegerField(max_length=200, blank=True)
-    houses = models.IntegerField(max_length=200, blank=True)
-    populations = models.IntegerField(max_length=200, blank=True)
-    monestaries = models.IntegerField(max_length=200, blank=True)
+    schools = models.IntegerField( blank=True)
+    houses = models.IntegerField( blank=True)
+    populations = models.IntegerField(blank=True)
+    monestaries = models.IntegerField( blank=True)
     name = models.CharField(max_length=200)
    
     
@@ -43,4 +43,6 @@ class SchoolType(models.Model):
     
     def __str__(self):
         return self.name
+
+    
     

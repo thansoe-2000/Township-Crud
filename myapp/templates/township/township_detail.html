@@ -45,7 +45,7 @@
                     <tr>
                       <th scope="row">{{ forloop.counter }}</th>
                       <td>{{ village.name }}</td>
-                      <td>{{ village.schools }}</td>
+                      <td><a href="{% url "schools_page" %}">{{ village.schools }}</a></td>
                       <td>{{ village.houses }}</td>
                       <td>{{ village.populations }}</td>
                       <td>{{ village.monestaries }}</td>

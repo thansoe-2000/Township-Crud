@@ -4,6 +4,7 @@ from . forms import *
 # Create your views here.
 
 def home(request):
+    schooltypes = SchoolType.objects.all()
     townships = Township.objects.all()
     towns = Town.objects.all()
     villages = Village.objects.all()
@@ -12,7 +13,8 @@ def home(request):
         'townships':townships,
         'villages':villages,
         'towns':towns,
-        'wards':wards
+        'wards':wards,
+        'schooltypes':schooltypes,
         
     }
     return render(request, 'layout/index.html', context)
@@ -317,3 +319,12 @@ def delete_school_type(request, pk):
         'schooltype':schooltype,
     }
     return render(request, 'school_type/school_crud.html', context)
+
+# def schools(request):
+#     page = 'schools'
+#     schools = School.objects.all()
+#     context = {
+#         'page':page,
+#         'schools':schools,
+#     }
+#     return render(request, 'schools/schools.html', context)
